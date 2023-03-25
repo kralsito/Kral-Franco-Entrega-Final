@@ -63,6 +63,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'post-list' %}">Posts</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'post-create' %}">Nuevo Post</a>
+          </li>
         </ul>
         <form action="{% url 'post-search' %}" class="d-flex">
           <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar" aria-label="Search">
