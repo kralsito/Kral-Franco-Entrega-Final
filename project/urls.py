@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ForoApp.views import (index, PostList, PostUpdate, PostDelete, PostDetail, PostCreate, buscar
+from ForoApp.views import (index, PostList, PostUpdate, PostDelete, PostDetail, PostCreate, buscar, ProfileCreate, ProfileUpdate,
+                           Login, Logout, SignUp,
                            
                         )
+from django.conf import settings
+
 urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
@@ -27,6 +30,11 @@ urlpatterns = [
     path('post/<pk>/delete', PostDelete.as_view(), name="post-delete"),
     path('post/create', PostCreate.as_view(), name="post-create"),
     path('post/search', buscar, name="post-search"),
+    path('login/', Login.as_view(), name="login"),
+    path('signup/', SignUp.as_view(), name="signup"),
+    path('logout/', Logout.as_view(), name="logout"),
+    path('profile/create', ProfileCreate.as_view(), name="profile-create"),
+    path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
     
 ]
 

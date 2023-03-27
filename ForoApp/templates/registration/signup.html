@@ -1,0 +1,15 @@
+{% extends "ForoApp/base.html" %}
+
+{% load static %}
+
+{% block main %} 
+<br>
+<br>
+<br>
+<h1>Registro de Usuario</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Registrarme">
+</form>
+{% endblock %}

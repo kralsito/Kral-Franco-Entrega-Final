@@ -1,0 +1,16 @@
+{% extends "ForoApp/base.html" %}
+
+{% load static %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<h1>Login</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Ingresar"> 
+    <a href="{% url 'signup' %}">Registrarme</a>
+</form>
+{% endblock %}

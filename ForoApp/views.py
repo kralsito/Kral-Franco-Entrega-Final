@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ForoApp.models import Post
+from ForoApp.models import Post, Profile
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
@@ -59,3 +59,34 @@ def buscar(request):
         "posts": Post.objects.filter(titulo__icontains=criterio).all(),
     }
     return render(request, "ForoApp/busqueda.html", context)
+
+class Login(LoginView):
+    next_page = reverse_lazy("index")
+
+
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = reverse_lazy('post-list')
+
+
+class Logout(LogoutView):
+    template_name = "registration/logout.html"
+
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
+    model = Profile
+    success_url = reverse_lazy("post-list")
+    fields = ['avatar',]
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ProfileUpdate(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
+    model = Profile
+    success_url = reverse_lazy("post-list")
+    fields = ['avatar',]
+
+    def test_func(self):
+        return Profile.objects.filter(user=self.request.user).exists()
