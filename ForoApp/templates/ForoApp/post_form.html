@@ -3,10 +3,8 @@
 {% load static %}
 
 {% block main %}
-<br>
-<br>
-<br>
 
+<h1>Nuevo Posteo</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}

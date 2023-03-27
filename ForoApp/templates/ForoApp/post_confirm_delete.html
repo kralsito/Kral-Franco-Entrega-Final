@@ -3,9 +3,7 @@
 {% load static %}
 
 {% block main %}
-<br>
-<br>
-<br>
+
 <p style="margin-top: 10px;">Estas seguro que quiere borrar el post {{ post.titulo }}? </p>
 <form method="post">
     {% csrf_token %}

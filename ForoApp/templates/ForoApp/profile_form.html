@@ -3,6 +3,8 @@
 {% load static %}
 
 {% block main %}
+
+<h1>Creacion de Perfil</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}

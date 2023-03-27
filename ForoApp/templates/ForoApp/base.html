@@ -68,6 +68,9 @@
             <a class="nav-link active" aria-current="page" href="{% url 'post-create' %}">Nuevo Post</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'post-mine' %}">Mis Posts</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} | Salir</a>
           </li>
           {% else %}
@@ -86,7 +89,9 @@
   </nav>
 </header>
 
-
+<br>
+<br>
+<br>
 {% block main %}
 {% endblock %}
 

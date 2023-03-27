@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ForoApp.views import (index, PostList, PostUpdate, PostDelete, PostDetail, PostCreate, buscar, ProfileCreate, ProfileUpdate,
-                           Login, Logout, SignUp,
+                           Login, Logout, SignUp, PostMineList
                            
                         )
 from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name='index'),
@@ -35,6 +36,8 @@ urlpatterns = [
     path('logout/', Logout.as_view(), name="logout"),
     path('profile/create', ProfileCreate.as_view(), name="profile-create"),
     path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
+    path('post/list/mine', PostMineList.as_view(), name="post-mine"),
     
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
