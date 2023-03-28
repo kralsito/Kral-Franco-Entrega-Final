@@ -5,9 +5,9 @@
 {% block main %}
 
 <h1> Posts </h1>
-<ul>
+<ul> 
     {%  for post in posts  %}
-    <li> {{post.id}} - {{ post.titulo}} </li>
+    <li> {{post.id}} - {{ post.titulo}} </li><p><img height="128px" src="{{post.image_url}}">
     <a href="{% url 'post-detail' post.id %}">Ver Post</a>
          {% if user.is_authenticated and user.id == post.publisher.id %}
             <a href="{% url 'post-update' post.id %}">Actualizar</a>

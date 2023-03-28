@@ -76,8 +76,8 @@ class Logout(LogoutView):
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    success_url = reverse_lazy("post-list")
-    fields = ['avatar',]
+    success_url = reverse_lazy("index")
+    fields = ['avatar','nombre']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -85,8 +85,12 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
 
 class ProfileUpdate(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
     model = Profile
-    success_url = reverse_lazy("post-list")
-    fields = ['avatar',]
+    success_url = reverse_lazy("index")
+    fields = ['avatar','nombre']
 
     def test_func(self):
         return Profile.objects.filter(user=self.request.user).exists()
+
+class ProfileDetail(DetailView):
+    model = Profile
+    context_object_name = "profile"

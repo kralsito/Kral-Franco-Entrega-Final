@@ -1,6 +1,7 @@
 from django.contrib import admin
-from ForoApp.models import Post
+from ForoApp.models import Post, Profile
 
 # Register your models here.
 
 admin.site.register(Post)
+admin.site.register(Profile)

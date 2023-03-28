@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ForoApp.views import (index, PostList, PostUpdate, PostDelete, PostDetail, PostCreate, buscar, ProfileCreate, ProfileUpdate,
-                           Login, Logout, SignUp, PostMineList
+                           Login, Logout, SignUp, PostMineList, ProfileDetail
                            
                         )
 from django.conf import settings
@@ -37,6 +37,7 @@ urlpatterns = [
     path('profile/create', ProfileCreate.as_view(), name="profile-create"),
     path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
     path('post/list/mine', PostMineList.as_view(), name="post-mine"),
+    path('profile/<pk>/detail', ProfileDetail.as_view(), name="profile-detail"),
     
 ]
 

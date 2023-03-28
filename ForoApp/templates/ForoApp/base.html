@@ -70,6 +70,15 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'post-mine' %}">Mis Posts</a>
           </li>
+            {% if user.profile %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile-detail' user.profile.id %}">Perfil</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile-create' %}">Crear Perfil</a>
+            </li>
+            {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} | Salir</a>
           </li>

@@ -8,12 +8,18 @@ class Post(models.Model):
     descripcion= models.CharField(max_length=180)
     publisher = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="publisher")
     creado_el = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to="posts", null=True, blank=True)
+
+    @property
+    def image_url(self):
+        return self.image.url if self.image else ''
 
     def __str__(self):
         return f"{self.id} - {self.titulo}"
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+    nombre = models.CharField(max_length=20)
     avatar = models.ImageField(upload_to="avatares", null=True, blank=True)
 
     @property

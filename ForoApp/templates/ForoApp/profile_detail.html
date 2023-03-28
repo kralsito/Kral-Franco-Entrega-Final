@@ -8,9 +8,9 @@
 <br>
 <div class="d-flex justify-content-center">
     <div class="col col-8" style="text-align: center;">
-        <p><img height="256px" src="{{post.image_url}}"></p>
-        <h1 class="mt-5">{{ post.titulo }}</h1>
-        <p class="lead">{{ post.descripcion}}</p>
+        <p><img height="256px" src="{{profile.avatar_url}}"></p>
+        <h1 class="mt-5">{{ profile.nombre }}</h1>
+        <a href="{% url 'profile-update' profile.id %}">Actualizar</a>
     </div>
 </div>
 {% endblock %}
