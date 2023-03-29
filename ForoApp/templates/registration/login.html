@@ -4,11 +4,13 @@
 
 {% block main %}
 
-<h1>Login</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Ingresar"> 
-    <a href="{% url 'signup' %}">Registrarme</a>
-</form>
+<div class="center-login">
+    <h1 id="posts">Login</h1>
+    <form method="POST" class="login-text">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Ingresar" class="btn btn-primary botones-post"> 
+        <a href="{% url 'signup' %}"class="btn btn-primary botones-post">Registrarme</a>
+    </form>
+</div>
 {% endblock %}

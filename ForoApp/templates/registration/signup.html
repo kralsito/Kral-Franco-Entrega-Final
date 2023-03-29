@@ -4,10 +4,12 @@
 
 {% block main %} 
 
-<h1>Registro de Usuario</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Registrarme">
-</form>
+<div class="center-login">
+    <h1 id="logout">Registro de Usuario</h1>
+    <form method="POST" class="text-justify">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Registrarme" class="btn btn-primary botones-signup">
+    </form>
+</div>
 {% endblock %}

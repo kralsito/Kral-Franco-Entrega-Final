@@ -10,7 +10,7 @@
     <div class="col col-8" style="text-align: center;">
         <p><img height="256px" src="{{profile.avatar_url}}"></p>
         <h1 class="mt-5">{{ profile.nombre }}</h1>
-        <a href="{% url 'profile-update' profile.id %}">Actualizar</a>
+        <a href="{% url 'profile-update' profile.id %}" class="btn btn-primary boton-perfil">Actualizar</a>
     </div>
 </div>
 {% endblock %}

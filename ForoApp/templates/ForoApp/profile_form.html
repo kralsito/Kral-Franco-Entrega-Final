@@ -4,10 +4,14 @@
 
 {% block main %}
 
-<h1>Creacion de Perfil</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Actualizar">
-</form>
+<h1 id="posts">Creacion de Perfil</h1>
+<ul class="class-center"> 
+    <div class="class-center-lista">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Actualizar">
+    </form>
+    </div>
+</ul>
 {% endblock %}

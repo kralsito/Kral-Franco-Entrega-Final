@@ -4,15 +4,17 @@
 
 {% block main %}
 
-<h1> Posts </h1>
-<ul> 
+<h1 id="posts"> Posts </h1>
+<ul class="class-center"> 
     {%  for post in posts  %}
-    <li> {{post.id}} - {{ post.titulo}} </li><p><img height="128px" src="{{post.image_url}}">
-    <a href="{% url 'post-detail' post.id %}">Ver Post</a>
-         {% if user.is_authenticated and user.id == post.publisher.id %}
-            <a href="{% url 'post-update' post.id %}">Actualizar</a>
-            <a href="{% url 'post-delete' post.id %}">Borrar</a>   
-         {% endif %}
+    <div class="class-center-lista">
+        <li> {{post.id}} - {{ post.titulo}} </li><p><img height="128px" src="{{post.image_url}}">
+        <a href="{% url 'post-detail' post.id %}" class="btn btn-primary botones-post">Ver Post</a>
+             {% if user.is_authenticated and user.id == post.publisher.id %}
+                <a href="{% url 'post-update' post.id %}" class="btn btn-primary botones-post">Actualizar</a>
+                <a href="{% url 'post-delete' post.id %}" class="btn btn-primary botones-post">Borrar</a>   
+             {% endif %}
+    </div>
     {% endfor %}
 </ul>
 {% endblock %}
