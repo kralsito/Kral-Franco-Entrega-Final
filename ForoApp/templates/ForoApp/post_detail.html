@@ -19,13 +19,14 @@
         <h1 id="posts"> Comentarios </h1>
         {% for comentario in post.comentarios.all %}
             <div class="class-center-lista">
-                <li>Usuario : {{comentario.autor}}<br>
+                <li>Creado por - {{comentario.autor}} --- {{comentario.creado_el}}<br>
                     <br>
-                    Contenido:{{comentario.descripcion }}
+                    <h5>{{comentario.descripcion }}</h5>
+            </div>
                 {% if user.is_authenticated and user.id == comentario.autor.id %}
                     </li><a href="{% url 'comentario-delete' comentario.id %}" class="btn btn-primary botones-post">Borrar</a> 
                 {% endif %}
-            </div>
+            
         {% endfor %}
     </div>
 </div>

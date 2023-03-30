@@ -11,7 +11,8 @@ from ForoApp.forms import PostForm
 # Create your views here.
 
 def index(request):
-    return render(request, "ForoApp/index.html")
+    posts =  Post.objects.all().order_by("-creado_el")[:5]
+    return render(request, "ForoApp/index.html", {"posts": posts})
 
 def about(request):
     return render(request, "ForoApp/about.html")
