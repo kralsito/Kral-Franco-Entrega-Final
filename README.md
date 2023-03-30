@@ -21,11 +21,12 @@ python3 manage.py runserver
 ## Pagina sobre Futbol
 
 En la que podemos realizar:
+```
 -ABM de Post
 -Lectura de Post
 -Comentar
 -Enviar Mensajes
 -ABM de Perfil
 -Crear un Usuario
-
+```
 Este ultimo paso es importante para ver la mayoria de las opciones!
