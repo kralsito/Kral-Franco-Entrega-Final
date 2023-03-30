@@ -25,7 +25,10 @@ Desde la terminal correr el siguiente comando
 ```bash
 python3 manage.py runserver
 ```
-
+## Si no funciona correr el siguiente comando y volver a probar
+```
+    pip install pillow
+```
 ## Pagina sobre Futbol
 
 En la que podemos realizar:
