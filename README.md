@@ -31,6 +31,10 @@ python3 manage.py runserver
 ```
 ## Pagina sobre Futbol
 
+## Video de demostracion
+
+https://www.youtube.com/watch?v=twNwZRDC8T4&ab_channel=FrancoKral
+
 En la que podemos realizar:
 ```
 -ABM de Post
