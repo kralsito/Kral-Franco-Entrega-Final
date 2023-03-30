@@ -4,11 +4,15 @@
 
 {% block main %}
 
-<h1 id="posts"> Posts </h1>
+
 <ul class="class-center"> 
+    {% if not posts%}
+        <h2 id="posts">No hay post :(</h2>
+    {%else%}
+    <h1 id="posts"> Posts </h1>
     {%  for post in posts  %}
     <div class="class-center-lista">
-        <li> {{post.id}} - {{ post.titulo}} </li><p><img height="128px" src="{{post.image_url}}">
+        <li> {{post.id}} - {{ post.titulo}}</li><p><img height="128px" src="{{post.image_url}}">
         <a href="{% url 'post-detail' post.id %}" class="btn btn-primary botones-post">Ver Post</a>
              {% if user.is_authenticated and user.id == post.publisher.id %}
                 <a href="{% url 'post-update' post.id %}" class="btn btn-primary botones-post">Actualizar</a>
@@ -16,5 +20,6 @@
              {% endif %}
     </div>
     {% endfor %}
+    {% endif %}
 </ul>
 {% endblock %}

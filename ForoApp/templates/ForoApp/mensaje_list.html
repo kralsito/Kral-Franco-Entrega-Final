@@ -1,0 +1,20 @@
+{% extends "ForoApp/base.html" %}
+
+{% load static %}
+
+ {% block main %}
+ <h1 id="posts"> Mis Mensajes </h1>
+<ul class="class-center"> 
+    {%  for mensaje in mensajes  %}
+    <div class="class-center-lista">
+    <li> Mensaje de: {{mensaje.email}} 
+        <br> 
+        {{ mensaje.mensaje }}
+        <br>
+        <a href="{% url 'mensaje-delete' mensaje.id %}"class="btn btn-primary boton-perfil">Borrar</a>
+    </li>
+    </div>
+    {% endfor %}
+    
+</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "ForoApp/base.html" %}
+
+{% load static %}
+
+{% block main %}
+<p style="margin-top: 10px;">¿Estas seguro que quiere borrar este comentario? </p>
+<form method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Borrar">
+    <a class="btn btn-primary" href="{% url 'post-list'  %}">Cancelar</a>
+</form>
+    
+    
+{%endblock%}

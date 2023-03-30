@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ForoApp.models import Post, Profile
+from ForoApp.models import Post, Profile, Mensaje, Comentario
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
@@ -12,6 +12,9 @@ from ForoApp.forms import PostForm
 
 def index(request):
     return render(request, "ForoApp/index.html")
+
+def about(request):
+    return render(request, "ForoApp/about.html")
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
@@ -94,3 +97,46 @@ class ProfileUpdate(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
 class ProfileDetail(DetailView):
     model = Profile
     context_object_name = "profile"
+
+class MensajeCreate(CreateView):
+    model = Mensaje
+    success_url = reverse_lazy('mensaje-create')
+    fields = '__all__'
+
+
+class MensajeDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Mensaje
+    context_object_name = "mensaje"
+    success_url = reverse_lazy("mensaje-list")
+
+    def test_func(self):
+        return Mensaje.objects.filter(destinatario=self.request.user).exists()
+    
+
+class MensajeList(LoginRequiredMixin, ListView):
+    model = Mensaje
+    context_object_name = "mensajes"
+
+    def get_queryset(self):
+        import pdb; pdb.set_trace
+        return Mensaje.objects.filter(destinatario=self.request.user).all()
+
+class ComentarioCreate(CreateView):
+    model = Comentario
+    success_url = reverse_lazy('post-list')
+    fields = '__all__'
+
+class ComentarioDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Comentario
+    context_object_name = "comentario"
+    success_url = reverse_lazy("post-list")
+
+    def test_func(self):
+        user_id = self.request.user.id
+        comentario_id =  self.kwargs.get("pk")
+        return Comentario.objects.filter(autor=user_id, id=comentario_id).exists()
+    
+class ComentarioList(ListView):
+    model = Comentario
+    context_object_name = "comentarios"
+

@@ -1,0 +1,17 @@
+{% extends "ForoApp/base.html" %}
+
+{% load static %}
+
+{% block main %}
+
+<h1 id="posts">Comentario</h1>
+<ul class="class-center"> 
+    <div class="class-center-lista">
+    <form method="post" enctype="multipart/form-data" class="nuevo-post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Actualizar" class="btn btn-primary boton-nuevo-post">
+    </form>
+    </div>
+</ul>
+{% endblock %}

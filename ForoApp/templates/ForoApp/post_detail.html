@@ -9,8 +9,24 @@
 <div class="d-flex justify-content-center">
     <div class="col col-8" style="text-align: center;">
         <p><img height="256px" src="{{post.image_url}}"></p>
-        <h1 class="mt-5">{{ post.titulo }}</h1>
+        <h1 class="mt-5">{{ post.titulo }}</h1> 
+        <h7>Creado por {{ post.publisher }}</h7> <h7>el {{ post.creado_el }}</h7>
         <p class="lead descripcion-detalle">Descripción: {{ post.descripcion}}</p>
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'comentario-create' post.id %}" class="btn btn-primary botones-post">Comentar</a>
+        <h1 id="posts"> Comentarios </h1>
+        {% for comentario in post.comentarios.all %}
+            <div class="class-center-lista">
+                <li>Usuario : {{comentario.autor}}<br>
+                    <br>
+                    Contenido:{{comentario.descripcion }}
+                {% if user.is_authenticated and user.id == comentario.autor.id %}
+                    </li><a href="{% url 'comentario-delete' comentario.id %}" class="btn btn-primary botones-post">Borrar</a> 
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
