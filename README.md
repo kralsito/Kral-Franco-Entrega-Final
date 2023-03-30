@@ -10,6 +10,13 @@ Desde la terminal correr el siguiente comando
 pip3 install django
 ```
 
+## Migrar la base de datos
+Desde la terminal correr el siguiente comando
+```python manage.py makemigrations  
+   python manage.py migrate
+```
+
+
 ## Para poder correr el servidor 
 
 Desde la terminal correr el siguiente comando
