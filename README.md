@@ -31,10 +31,6 @@ python3 manage.py runserver
 ```
 ## Pagina sobre Futbol
 
-## Video de demostracion
-
-https://www.youtube.com/watch?v=twNwZRDC8T4&ab_channel=FrancoKral
-
 En la que podemos realizar:
 ```
 -ABM de Post
@@ -45,3 +41,8 @@ En la que podemos realizar:
 -Crear un Usuario
 ```
 Este ultimo paso es importante para ver la mayoria de las opciones!
+
+
+## Video de demostracion
+
+https://www.youtube.com/watch?v=twNwZRDC8T4&ab_channel=FrancoKral
