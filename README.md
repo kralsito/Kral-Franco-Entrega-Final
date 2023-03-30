@@ -27,7 +27,7 @@ python3 manage.py runserver
 ```
 ## Si no funciona correr el siguiente comando y volver a probar
 ```
-    pip install pillow
+    python -m pip install Pillow
 ```
 ## Pagina sobre Futbol
 
